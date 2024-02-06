@@ -8,7 +8,7 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.preprocessing import LabelEncoder
 from PIL import Image
 
-class CustomImageDataset(Dataset):
+class DetectionDataset(Dataset):
     def __init__(
         self, 
         path_images,
@@ -120,7 +120,7 @@ class CustomImageDataset(Dataset):
             img_transformed, boxes_transformed, labels_transformed = self.transform(image=img_rgb, bboxes=boxes, class_labels=labels).values()
         # Target dict with boxes and labels, belongs to one unique image
         target = {}
-        target['boxes'] = torch.as_tensor(boxes_transformed, dtype=torch.float32, device=self.device)
-        target['labels'] = torch.tensor(labels_transformed, device=self.device)
-        img_transformed = torch.as_tensor(img_transformed, dtype=torch.float32, device=self.device).permute(2, 0, 1)
+        target['boxes'] = torch.as_tensor(boxes_transformed, dtype=torch.float32)
+        target['labels'] = torch.tensor(labels_transformed)
+        img_transformed = torch.as_tensor(img_transformed, dtype=torch.float32).permute(2, 0, 1)
         return img_transformed, target
