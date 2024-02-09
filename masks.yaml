@@ -1,0 +1,9 @@
+path: ./yolo_data # dataset root dir
+train: images/train # train images (relative to 'path')
+val: images/val # val images (relative to 'path') 
+test: images/test # test images
+
+names:
+  0: with_mask
+  1: without_mask
+  2: mask_weared_incorrect

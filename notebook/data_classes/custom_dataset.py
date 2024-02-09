@@ -107,7 +107,7 @@ class DetectionDataset(Dataset):
         return len(self.unique_images)
     
     def __getitem__(self, idx):
-        # Get image name, convert to tensor
+        # Get image name, convert to numpy array
         image_name = self.unique_images[idx]
         img_rgb = np.array(Image.open(os.path.join(self.data_path_images, image_name)).convert('RGB'))
         # Get all rows with one unique image [idx]
@@ -120,6 +120,7 @@ class DetectionDataset(Dataset):
             img_transformed, boxes_transformed, labels_transformed = self.transform(image=img_rgb, bboxes=boxes, class_labels=labels).values()
         # Target dict with boxes and labels, belongs to one unique image
         target = {}
+        # Convert all data to torch.Tensor, image shape [H, W, C] -> [C, H, W]
         target['boxes'] = torch.as_tensor(boxes_transformed, dtype=torch.float32)
         target['labels'] = torch.tensor(labels_transformed)
         img_transformed = torch.as_tensor(img_transformed, dtype=torch.float32).permute(2, 0, 1)

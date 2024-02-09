@@ -1,4 +1,7 @@
 data/
+datasets/
 models/
 _*/
 logs/
+runs/
+*.pt
