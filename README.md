@@ -1,6 +1,6 @@
 # <center>Детектирование медицинских масок</center>
 
-<img src=./notebook/imgs/readme_example.png width=1200 align=center></img>
+<img src=./imgs/readme_example.png width=1200 align=center></img>
 
 Датасет для обучения был взят с [<i><b>Kaggle</b></i>](https://www.kaggle.com/datasets/andrewmvd/face-mask-detection)
 
