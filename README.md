@@ -1,4 +1,7 @@
 # <center>Детектирование медицинских масок</center>
+
+<img src=./notebook/imgs/readme_example.png width=1200 align=center></img>
+
 Датасет для обучения был взят с [<i><b>Kaggle</b></i>](https://www.kaggle.com/datasets/andrewmvd/face-mask-detection)
 
 Было обучено 2 модели с высоким показателем $\text{mAP@50}$:
